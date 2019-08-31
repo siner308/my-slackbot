@@ -1,0 +1,10 @@
+bs4
+gevent
+greenlet
+pymongo
+redis
+requests
+slacker
+six
+slackclient
+websocket-client==0.54.0

@@ -23,12 +23,14 @@ def run(robot, channel, user, tokens):
 
     key = {"user": user}
     rows = list(coll.find(key).sort('_id', pymongo.DESCENDING))
-    data = rows[0]
-
-    try:
-        worktime = data['worktime']
-    except:
-        worktime = None
+    if len(rows):
+        data = rows[0]
+        try:
+            worktime = data['worktime']
+        except:
+            worktime = None
+    else:
+        worktime = '첫출근입니다'
 
     if worktime is None:
         text = "어디서 퇴근도 안하고 출근을!!!"
